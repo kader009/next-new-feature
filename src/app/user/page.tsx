@@ -32,12 +32,11 @@ const UserData = async () => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const data = await response.json();
-  console.log(data);
   return (
-    <div>
+    <div className="space-y-3 w-1/2 mx-auto">
       {data?.map((user: Root) => (
         <div key={user.id}>
-          <h4>{user.name}</h4>
+          <h4 className="bg-black text-white p-1 rounded">{user.name}</h4>
         </div>
       ))}
     </div>
