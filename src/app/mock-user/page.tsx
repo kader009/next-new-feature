@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath } from 'next/cache';
 
 interface Mock {
   id: string;
@@ -25,9 +25,10 @@ const MockUser = async () => {
       }
     );
     const newUser = await res.json();
-    revalidatePath('/mock-user')
+    revalidatePath('/mock-user');
     console.log(newUser);
   }
+
   return (
     <>
       <div className="text-center">
