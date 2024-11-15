@@ -35,7 +35,7 @@ const UserData = async () => {
   console.log(data);
   return (
     <div>
-      {data.map((user: Root) => (
+      {data?.map((user: Root) => (
         <div key={user.id}>
           <h4>{user.name}</h4>
         </div>
