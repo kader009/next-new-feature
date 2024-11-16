@@ -1,10 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname === '/')
-    return NextResponse.redirect(new URL('/about', request.url));
-}
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('about', 'Hello');
 
-export const config = {
-  mather: '/',
-};
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
+
+  response.headers.set('about2', 'hello');
+
+  return response;
+}
