@@ -1,4 +1,10 @@
-import { use } from 'react';
+import { Metadata } from 'next';
+import { Suspense, use } from 'react';
+
+export const metadata: Metadata = {
+  title: 'Next15 App | About',
+  description: 'this is about page',
+};
 
 const fetchName = async () => {
   const response = await fetch(
@@ -20,15 +26,17 @@ const About = () => {
       <h1 className="text-center font-semibold">About page</h1>
       <br />
       <br />
-      <div className="flex justify-center items-center gap-4 flex-wrap">
-        {Names.map((name: NAme) => (
-          <div key={name.id}>
-            <span className="bg-blue-600 rounded text-white p-2">
-              {name.name}
-            </span>
-          </div>
-        ))}
-      </div>
+      <Suspense fallback={<h1>Loading..</h1>}>
+        <div className="flex justify-center items-center gap-4 flex-wrap">
+          {Names.map((name: NAme) => (
+            <div key={name.id}>
+              <span className="bg-blue-600 rounded text-white p-2">
+                {name.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </Suspense>
     </div>
   );
 };
