@@ -8,6 +8,11 @@ const fetchName = async () => {
   return response.json();
 };
 
+interface NAme {
+  name: string;
+  id: string;
+}
+
 const About = () => {
   const Names = use(fetchName());
   return (
@@ -16,7 +21,7 @@ const About = () => {
       <br />
       <br />
       <div className="flex justify-center items-center gap-4 flex-wrap">
-        {Names.map((name) => (
+        {Names.map((name: NAme) => (
           <div key={name.id}>
             <span className="bg-blue-600 rounded text-white p-2">
               {name.name}
