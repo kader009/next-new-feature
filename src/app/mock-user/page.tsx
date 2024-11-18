@@ -7,7 +7,7 @@ interface Mock {
 
 const MockUser = async () => {
   const response = await fetch(
-    'https://6736d36baafa2ef22231a2ab.mockapi.io/user'
+    'https://jsonplaceholder.typicode.com/users'
   );
   const data = await response.json();
 
@@ -15,7 +15,7 @@ const MockUser = async () => {
     'use server';
     const name = formData.get('name');
     const res = await fetch(
-      `https://6736d36baafa2ef22231a2ab.mockapi.io/user`,
+      `https://jsonplaceholder.typicode.com/users`,
       {
         method: 'POST',
         headers: {
