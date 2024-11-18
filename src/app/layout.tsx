@@ -4,7 +4,7 @@ import Providers from '@/provider/provider';
 import { Roboto } from 'next/font/google';
 
 const roboto = Roboto({
-  weight: '400',
+  weight: ['400', '900', '700', '500'],
   subsets: ['latin'],
 });
 
